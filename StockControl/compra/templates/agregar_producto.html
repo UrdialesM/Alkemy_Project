@@ -1,0 +1,27 @@
+{% extends 'base/index.html' %}
+
+{% block titulo %} Agregar Productos {% endblock %}
+
+{% block contenido %}
+    <main class="mt-3 text-center container-fluid">
+        <h2 class="mb-3">Agregar Nuevo Producto</h2>
+        <div class="row mt-auto justify-content-center">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <form method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="form-group">
+                        {{ field.errors }}
+                        {{ field.label_tag }}
+                        {{ field }}
+                        </div>
+                    {% endfor %}
+                    <br>
+                    <button type="submit" class="btn btn-primary mb-4">Guardar</button>
+                </form>
+            </div>
+        </div>
+        <a href="/lista_productos">Listado de productos</a>
+    </main>
+{% endblock %}
+

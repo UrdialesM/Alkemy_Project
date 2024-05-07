@@ -1,0 +1,29 @@
+{% extends 'base/index.html' %}
+
+{% block titulo %} Lista de Proveedores {% endblock %}
+
+{% block contenido %}
+        <main class="mt-4 container-fluid">
+            <h2 class="text-center mb-4">Listado de Proveedores</h2>
+            <div class="row mt-auto justify-content-center">
+                <div class="col-sm-8 mb-3 mb-sm-0">
+                    <table class="table table-bordered border-primary">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>DNI</th>
+                            </tr>
+                        {% for proveedor in proveedores %}
+                                <tr>
+                                    <td>{{ proveedor.nombre }}</td>
+                                    <td>{{ proveedor.apellido }}</td>
+                                    <td>{{ proveedor.dni }}</td>
+                                </tr>
+                        {% endfor %}
+                    </table>
+                    <a href="/agregar_proveedor">Agregar nuevo proveedor</a>
+                </div>
+            </div>
+        </main>
+{% endblock %}
+
